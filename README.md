@@ -42,6 +42,12 @@ android/app/build/outputs/apk/debug/app-debug.apk
 
 也可以直接在 GitHub Actions 里运行 `Build APK` 工作流，完成后下载 `are-you-exercise-debug-apk` artifact。
 
+每次推送到 `main` 后，工作流也会把最新 debug APK 写回仓库：
+
+```text
+dist/are-you-exercise-debug.apk
+```
+
 ## 数据说明
 
 所有记录只保存在手机浏览器本地，不会上传到服务器。更换浏览器、清理浏览器数据或卸载 PWA 可能会删除记录，建议定期用导出按钮备份。
