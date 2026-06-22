@@ -1,0 +1,34 @@
+plugins {
+    id "com.android.application"
+}
+
+android {
+    namespace "com.areyou.exercise"
+    compileSdk 35
+
+    defaultConfig {
+        applicationId "com.areyou.exercise"
+        minSdk 23
+        targetSdk 35
+        versionCode 1
+        versionName "1.0.0"
+    }
+}
+
+tasks.register("syncWebAssets", Copy) {
+    from(rootProject.projectDir.parentFile) {
+        include "index.html"
+        include "styles.css"
+        include "app.js"
+        include "app-icon.svg"
+        include "icon-192.png"
+        include "icon-512.png"
+        include "manifest.webmanifest"
+        include "sw.js"
+    }
+    into(layout.projectDirectory.dir("src/main/assets"))
+}
+
+tasks.named("preBuild") {
+    dependsOn("syncWebAssets")
+}
