@@ -31,22 +31,26 @@
 
 ```bash
 cd android
-gradle :app:assembleDebug
+gradle :app:assembleRelease
 ```
 
 打包产物位置：
 
 ```text
-android/app/build/outputs/apk/debug/app-debug.apk
+android/app/build/outputs/apk/release/app-release.apk
 ```
 
-也可以直接在 GitHub Actions 里运行 `Build APK` 工作流，完成后下载 `are-you-exercise-debug-apk` artifact。
+也可以直接在 GitHub Actions 里运行 `Build APK` 工作流，完成后下载 `are-you-exercise-release-apk` artifact。
 
-每次推送到 `main` 后，工作流也会把最新 debug APK 写回仓库：
+每次推送到 `main` 后，工作流也会把最新 release APK 写回仓库：
 
 ```text
-dist/are-you-exercise-debug.apk
+dist/are-you-exercise-release.apk
 ```
+
+Release APK 使用固定签名文件 `android/app/release.keystore`。第一次 GitHub Actions 构建时会自动生成并提交这个 keystore，之后更新 APK 时包名和签名都会保持一致，手机覆盖安装时本地锻炼记录可以保留。
+
+如果你已经安装过旧的 debug APK，第一次切换到 release APK 时签名不一致，可能无法直接覆盖安装。建议先在旧版 App 里导出 JSON 备份，再卸载旧版并安装 release APK；之后再更新 release APK 就可以覆盖安装并保留数据。
 
 ## 数据说明
 

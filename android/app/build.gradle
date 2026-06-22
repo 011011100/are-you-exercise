@@ -2,16 +2,36 @@ plugins {
     id "com.android.application"
 }
 
+def resolvedVersionCode = (project.findProperty("appVersionCode") ?: "1").toString().toInteger()
+def resolvedVersionName = (project.findProperty("appVersionName") ?: "1.0.0").toString()
+
 android {
     namespace "com.areyou.exercise"
     compileSdk 35
+
+    signingConfigs {
+        release {
+            storeFile file("release.keystore")
+            storePassword "areyouexercise"
+            keyAlias "are-you-exercise"
+            keyPassword "areyouexercise"
+        }
+    }
 
     defaultConfig {
         applicationId "com.areyou.exercise"
         minSdk 23
         targetSdk 35
-        versionCode 1
-        versionName "1.0.0"
+        versionCode resolvedVersionCode
+        versionName resolvedVersionName
+    }
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.release
+            minifyEnabled false
+            shrinkResources false
+        }
     }
 }
 
