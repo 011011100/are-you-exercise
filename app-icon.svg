@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title desc">
+  <title id="title">练了吗图标</title>
+  <desc id="desc">绿色背景上的训练记录对勾和杠铃图形</desc>
+  <rect width="128" height="128" rx="24" fill="#126a5a"/>
+  <path fill="#d9f0e9" d="M24 72h16v14H24zM88 72h16v14H88zM40 66h48v26H40z"/>
+  <path fill="#fff" d="m58 78 8 8 20-24 9 8-29 34-18-18z"/>
+  <path fill="#f7c766" d="M36 33h56a8 8 0 0 1 8 8v12H28V41a8 8 0 0 1 8-8z"/>
+  <path fill="#0c443c" d="M43 45h42v8H43z"/>
+</svg>
